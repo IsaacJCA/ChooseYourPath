@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class ChooseYourPath {
     public static void main(String []args) {
         // Creates a scanner object
@@ -47,7 +49,31 @@ public class ChooseYourPath {
             else if (input == 2) 
             {
                 System.out.println("You fight the monsters with all your strength!");
+                random = Math.random();
                 
+                if (hasArmor && random > 0.49)
+                {
+                    System.out.println("You succesfully kill the monster, your armor protects you from its attacks!");
+                    bossFight(hasArmor, hasShoes);
+                }
+                else if (hasShoes && random > 0.29)
+                {
+                    System.out.println("You succesfully kill the monster!");
+                    bossFight(hasArmor, hasShoes);
+                }
+                else
+                {
+                    if(hasArmor)
+                    {
+                        System.out.println("With all your effort, you still fail... You die with honor");
+                        System.exit(0);
+                    }
+                    else
+                    {
+                        System.out.println("With all your effort, you still fail... You die with honor... only if you had some armor");
+                        System.exit(0);
+                    }
+                }
                 
                 if (hasArmor) 
                 {
